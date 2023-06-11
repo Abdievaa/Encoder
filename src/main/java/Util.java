@@ -1,10 +1,9 @@
 
+import lombok.SneakyThrows;
+
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class Util {
     private static final BufferedReader CONSOLE = new BufferedReader(new InputStreamReader(System.in));
@@ -16,11 +15,13 @@ public class Util {
         System.out.println(message);
     }
 
-    public static String readString() throws IOException {
+    @SneakyThrows
+    public static String readString() {
         return CONSOLE.readLine();
     }
 
-    public static int readInt() throws IOException {
+    @SneakyThrows
+    public static int readInt() {
         return Integer.parseInt(readString());
     }
 
@@ -31,13 +32,12 @@ public class Util {
         String newFileName = "";
         if (fileName.contains(".")) {
             int index = fileName.lastIndexOf(".");
-            newFileName = fileName.substring(0,index)+ suffix + fileName.substring(index);
+            newFileName = fileName.substring(0, index) + suffix + fileName.substring(index);
         } else {
             newFileName = fileName + suffix;
 
         }
         return directory.resolve(newFileName);
-
 
 
 ///Users/aliiaabdyeva/Documents/Java-18/Encoder/src/test.txt
